@@ -78,4 +78,10 @@ th{background:var(--color-steel-100,#e8eaed)}
   .cards{grid-template-columns:repeat(2,1fr)}
   form button[type=submit]{width:auto}
 }
+/* ol.flow: numbered steps with counter circles, joined by a line; stacks on phones */
+.flow{list-style:none;margin:1.5rem 0;padding:0;counter-reset:flow}
+.flow li{position:relative;counter-increment:flow;margin:0 0 1rem;padding:var(--_gap) var(--_gap) var(--_gap) 4rem;min-height:var(--_touch);background:var(--_surface);border:1px solid var(--_line);border-radius:8px;box-shadow:var(--shadow-card,0 1px 3px rgba(0,0,0,.15));max-width:none}
+.flow li::before{content:counter(flow);position:absolute;left:var(--_gap);top:var(--_gap);width:2.25rem;height:2.25rem;border-radius:50%;background:var(--_dark);color:var(--_paper);font-weight:800;display:flex;align-items:center;justify-content:center}
+.flow li:not(:last-child)::after{content:"";position:absolute;left:calc(var(--_gap) + 1.125rem - 1px);bottom:-1rem;height:1rem;border-left:2px solid var(--_dark2)}
+@media (min-width:60rem){.flow li{padding-left:4.5rem}}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
